@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Up Routine Planner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #FFF0F2; /* Latar belakang pink susu yang sangat soft */
+            color: #4A3B3C;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden; /* Mengunci halaman agar pas dalam 1 lembar */
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            color: #D32F2F; /* Merah stroberi cerah */
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        /* Container Target Harian */
+        .daily-targets {
+            background-color: #FFFFFF;
+            border: 2px dashed #FF8A8A; /* Border putus-putus yang cute */
+            border-radius: 12px;
+            padding: 10px 15px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 6px rgba(255, 138, 138, 0.1);
+        }
+
+        .daily-targets h2 {
+            color: #C62828;
+            font-size: 14px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .target-item {
+            font-size: 11px;
+            line-height: 1.4;
+            background: #FFF5F6;
+            padding: 6px 10px;
+            border-radius: 8px;
+            border-left: 3px solid #FF5252;
+        }
+
+        .target-item strong {
+            color: #D32F2F;
+        }
+
+        /* Container Tabel Utama */
+        .table-container {
+            flex: 1;
+            background: #FFFFFF;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(211, 47, 47, 0.06);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #FFE3E5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            flex: 1;
+        }
+
+        th {
+            background-color: #FF5252; /* Warna merah pastel cerah */
+            color: #FFFFFF;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        th:first-child { width: 12%; }
+        th:nth-child(2) { width: 22%; }
+        th:nth-child(3) { width: 22%; }
+        th:nth-child(4) { width: 22%; }
+        th:nth-child(5) { width: 22%; }
+
+        tr {
+            border-bottom: 1px solid #FFE3E5;
+        }
+
+        tr:last-child {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: #FFF8F9; /* Baris selang-seling pink super soft */
+        }
+
+        td {
+            padding: 8px 10px;
+            font-size: 11px;
+            line-height: 1.35;
+            vertical-align: middle;
+        }
+
+        /* Styling Kolom Hari */
+        .day-cell {
+            text-align: center;
+            font-weight: 700;
+            color: #C62828;
+            border-right: 1px solid #FFE3E5;
+        }
+
+        .day-focus {
+            display: block;
+            font-size: 9px;
+            color: #FF8A8A;
+            font-weight: 600;
+            margin-top: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Badge Aktivitas Sore & Malam */
+        .badge-sore {
+            background-color: #FFEBEE;
+            color: #C62828;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 3px;
+        }
+
+        .exercise-name {
+            color: #D32F2F;
+            font-weight: 700;
+        }
+
+        /* Responsif untuk layar kecil jika dibuka di HP */
+        @media (max-width: 768px) {
+            body { overflow: auto; height: auto; }
+            .target-grid { grid-template-columns: 1fr; }
+            .table-container { overflow-x: auto; }
+            table { min-width: 600px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🍓 Target &amp; Jadwal Rutinitas Wajah 🍓</h1>
+    </header>
+
+    <!-- Kotak Target Harian -->
+    <div class="daily-targets">
+        <h2>📌 Target Harian Tetap (Senin - Minggu)</h2>
+        <div class="target-grid">
+            <div class="target-item">
+                <strong>🥛 Hidrasi:</strong> Minum minimal 2–2,5L air putih setiap hari (sebarkan merata sepanjang hari).
+            </div>
+            <div class="target-item">
+                <strong>🛌 Postur Tidur:</strong> Usahakan tidur telentang memakai bantal yang menopang leher dengan baik.
+            </div>
+            <div class="target-item">
+                <strong>🦷 Mengunyah:</strong> Setiap makan, bagi makanan secara seimbang di sisi kanan dan kiri mulut.
+            </div>
+            <div class="target-item">
+                <strong>🧂 Batasi Garam:</strong> Hindari camilan asin, fast food, &amp; mi instan biar wajah tidak bloated di pagi hari.
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabel Utama -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Hari &amp; Fokus</th>
+                    <th>🌅 Pagi (Bangun Tidur)</th>
+                    <th>🌤️ Siang (Jam Makan)</th>
+                    <th>🌆 Sore (Olahraga)</th>
+                    <th>&zwj;🌃 Malam (Sebelum Tidur)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="day-cell">Senin<span class="day-focus">Otot Wajah</span></td>
+                    <td>Minum 1 gelas air hangat untuk melancarkan sirkulasi tubuh.</td>
+                    <td>Latihan mengunyah seimbang (sadari perpindahan makanan).</td>
+                    <td><span class="badge-sore">🏃 Kardio</span><br>30 menit jalan cepat atau joging ringan untuk bakar kalori global.</td>
+                    <td><span class="exercise-name">Smile Exercises</span> di depan cermin. Tarik kedua sudut bibir sejajar ke atas, tahan 10 detik (Ulangi 5x).</td>
+                </tr>
+                <tr>
+                    <td class="day-cell">Selasa<span class="day-focus">Anti-Bloated</span></td>
+                    <td>Pijat wajah ringan dari dagu ke atas telinga menggunakan jari bersih (2 menit) untuk drainase limfatik.</td>
+                    <td>Konsumsi makanan tinggi kalium (seperti pisang atau alpukat) untuk buang natrium.</td>
+                    <td><span class="badge-sore">💃 Aerobik</span><br>20 menit senam aerobik atau skipping seru di rumah.</td>
+                    <td>Latihan mengucapkan huruf vokal <span class="exercise-name">(A, I, U, E, O)</span> dengan gerakan mulut lebar dan tegas (3 menit).</td>
+                </tr>
+                <tr>
+                    <td class="day-cell">Rabu<span class="day-focus">Simetri Wajah</span></td>
+                    <td>Evaluasi postur saat duduk/belajar. Pastikan tidak menopang dagu dengan satu tangan.</td>
+                    <td>Pastikan minum air putih yang cukup sebelum dan sesudah makan siang.</td>
+                    <td><span class="badge-sore">💪 Beban</span><br>25 menit latihan beban ringan (seperti squats, lunges, atau push-up dinding).</td>
+                    <td><span class="exercise-name">Lip Press Exercise</span>. Rapatkan bibir kuat, lalu tersenyum lebar tanpa buka bibir. Tahan 10 detik (5x).</td>
+                </tr>
+                <tr>
+                    <td class="day-cell">Kamis<span class="day-focus">Hidrasi Max</span></td>
+                    <td>Lakukan stretching leher dan bahu secara santai agar aliran darah ke wajah lancar.</td>
+                    <td>Fokus pada makanan utuh (*whole foods*) seperti sayuran hijau dan protein tanpa lemak.</td>
+                    <td><span class="badge-sore">🚶 Santai</span><br>Jalan santai menikmati suasana di sekitar lingkungan rumah selama 30 menit.</td>
+                    <td>Latihan <span class="exercise-name">Senyum Asimetris Terbalik</span>. Tahan secara sadar sudut bibir yang lemah lebih tinggi di cermin (2 menit).</td>
+                </tr>
+                <tr>
+                    <td class="day-cell">Jumat<span class="day-focus">Otot Rahang</span></td>
+                    <td>Minum air putih hangat saat perut kosong sebelum memulai aktivitas.</td>
+                    <td>Pastikan porsi makanan tidak mengandung saus atau penyedap instan yang terlalu pekat.</td>
+                    <td><span class="badge-sore">🚴 Kardio</span><br>30 menit kardio intensitas sedang (seperti bersepeda atau joging).</td>
+                    <td><span class="exercise-name">Fish Face Exercise</span>. Kulum pipi ke dalam hingga membentuk muka ikan, lalu coba tersenyum. Tahan 10 detik (5x).</td>
+                </tr>
+                <tr>
+                    <td class="day-cell">Sabtu<span class="day-focus">Detoks Wajah</span></td>
+                    <td>Pijat wajah secara perlahan dari area tengah hidung keluar menuju pelipis dengan jari.</td>
+                    <td>Luangkan waktu untuk relaksasi otot wajah agar tidak terbiasa cemberut atau menegang.</td>
+                    <td><span class="badge-sore">🎯 Bebas</span><br>Sesi latihan fisik pilihan bebas yang kamu sukai selama 30 menit.</td>
+                    <td>Gunakan kamera belakang ponsel dengan **zoom-in 2x** dari jarak jauh untuk memotret kemajuan senyum simetris.</td>
+                </tr>
+                <tr>
+                    <td class="day-cell">Minggu<span class="day-focus">Rest &amp; Eval</span></td>
